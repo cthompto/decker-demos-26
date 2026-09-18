@@ -29,52 +29,58 @@ image:"%%IMG3AgABVgbAlXBILBqPyKRyyWw6n9CodEqtWq/YrHbL7Xq/4LB4TC6bz+i0es1uu9/wuHx
 button1:{"type":"button","size":[80,16],"pos":[400,128],"script":"home.0","text":"Slider Demo"}
 field1:{"type":"field","size":[128,48],"pos":[16,32],"border":0,"align":"center","value":{"text":["","Decker Demo Homepage"],"font":["","ahmPicnic"],"arg":["",""],"pat":[1,42]}}
 field2:{"type":"field","size":[176,144],"pos":[16,96],"locked":1,"border":0,"value":{"text":["","A landing page for ","Decker"," demos for Chelsea's Fall 2026 Creative Coding class. These demos are made to augment the existing Decker demos, not to replace them. The buttons to the right will take you to the individual demos which can be downloaded via the \"Save\" function if desired."],"font":["","ahmCasual","ahmCasual","ahmCasual"],"arg":["","","https://beyondloom.com/decker/",""]}}
-button2:{"type":"button","size":[176,16],"pos":[320,64],"script":"home.0","text":"Widgets/Contraptions Demo"}
-button3:{"type":"button","size":[80,16],"pos":[224,32],"script":"home.1","text":"Color Demo"}
-button4:{"type":"button","size":[80,16],"pos":[208,64],"script":"home.2","text":"Font Demo"}
+button2:{"type":"button","size":[176,16],"pos":[320,64],"script":"home.1","text":"Widgets/Contraptions Demo"}
+button3:{"type":"button","size":[80,16],"pos":[224,32],"script":"home.2","text":"Color Demo"}
+button4:{"type":"button","size":[80,16],"pos":[208,64],"script":"home.3","text":"Font Demo"}
 field3:{"type":"field","size":[96,32],"pos":[400,304],"locked":1,"border":0,"align":"right","value":{"text":["","This deck using the ","Miyazaki-16"," palette from Lospec."],"font":["","MSSmall_6_regular","MSSmall_6_regular","MSSmall_6_regular"],"arg":["","","https://lospec.com/palette-list/miyazaki-16",""]}}
-button6:{"type":"button","size":[144,16],"pos":[336,32],"script":"home.3","text":"Palette Per Card Demo"}
-button7:{"type":"button","size":[144,16],"pos":[352,96],"script":"home.4","text":"Appearing Button Demo"}
-button8:{"type":"button","size":[160,16],"pos":[224,128],"script":"home.5","text":"Image Interactions Demo"}
-button9:{"type":"button","size":[112,16],"pos":[208,96],"script":"home.6","text":"Path Unlock Demo"}
+button6:{"type":"button","size":[144,16],"pos":[336,32],"script":"home.4","text":"Palette Per Card Demo"}
+button7:{"type":"button","size":[144,16],"pos":[352,96],"script":"home.5","text":"Appearing Button Demo"}
+button8:{"type":"button","size":[160,16],"pos":[224,128],"script":"home.6","text":"Image Interactions Demo"}
+button9:{"type":"button","size":[112,16],"pos":[208,96],"script":"home.7","text":"Path Unlock Demo"}
 
 {script:home.0}
 on click do
- go["https://cthompto.github.io/decker-demos-26/widgets+contraptions.html"]
+ go["https://cthompto.github.io/decker-demos-26/slider-animation.html"]
 end
 {end}
 
 {script:home.1}
 on click do
- go["https://cthompto.github.io/decker-demos-26/color-palette-demo.html"]
+ go["https://cthompto.github.io/decker-demos-26/widgets+contraptions.html"]
 end
 {end}
 
 {script:home.2}
 on click do
- go["https://cthompto.github.io/decker-demos-26/font-import-demo.html"]
+ go["https://cthompto.github.io/decker-demos-26/color-palette-demo.html"]
 end
 {end}
 
 {script:home.3}
 on click do
- go["https://cthompto.github.io/decker-demos-26/palette-per-card-demo.html"]
+ go["https://cthompto.github.io/decker-demos-26/font-import-demo.html"]
 end
 {end}
 
 {script:home.4}
 on click do
- go["https://cthompto.github.io/decker-demos-26/appearing-buttons.html"]
+ go["https://cthompto.github.io/decker-demos-26/palette-per-card-demo.html"]
 end
 {end}
 
 {script:home.5}
 on click do
- go["https://cthompto.github.io/decker-demos-26/image-interaction.html"]
+ go["https://cthompto.github.io/decker-demos-26/appearing-buttons.html"]
 end
 {end}
 
 {script:home.6}
+on click do
+ go["https://cthompto.github.io/decker-demos-26/image-interaction.html"]
+end
+{end}
+
+{script:home.7}
 on click do
  go["https://cthompto.github.io/decker-demos-26/left-right-unlock-demo.html"]
 end
@@ -122,15 +128,15 @@ end
 {end}
 
 </script>
-<a id="target" style="display:none"></a>
-<img id="loader" style="display:none">
-<input id="source" type="file" style="display:none">
-<canvas id="render" style="display:none" width="512" height="342"></canvas>
-<canvas id="lrender" style="display:none" width="45" height="344"></canvas>
-<canvas id="rrender" style="display:none" width="45" height="344"></canvas>
-<canvas width="0" height="0" id="ltools"></canvas>
-<canvas id="display" width="1024" height="684" style="cursor: default;"></canvas>
-<canvas width="0" height="0" id="rtools"></canvas>
+<a id='target' style='display:none'></a>
+<img id='loader' style='display:none'/>
+<input id='source' type='file' style='display:none'>
+<canvas id='render' style='display:none'></canvas>
+<canvas id='lrender' style='display:none'></canvas>
+<canvas id='rrender' style='display:none'></canvas>
+<canvas width='0' height='0' id='ltools'></canvas>
+<canvas id='display'></canvas>
+<canvas width='0' height='0' id='rtools'></canvas>
 <style>
 html,body{height:100%;}
 body{background:black;margin:0;display:flex;align-items:center;justify-content:space-between;-webkit-user-select:none;user-select:none;}
@@ -7480,5 +7486,4 @@ q('body').ondrop=e=>{
 pushstate(lmenv()),load_deck(deck_read(q('script[language="decker"]').innerText))
 const tag=decodeURI(document.URL.split('#')[1]||'');if(tag.length)iwrite(deck,lms('card'),lms(tag))
 resize(),requestAnimationFrame(loop)
-</script>
-</body>
+</script></body>
